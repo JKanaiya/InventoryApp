@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <%= title %>
+  </head>
+  <body>
+  <% if(category){%>
+    <form method="POST" action="/">
+      <label for="name">
+      Category
+      </label>
+      <input type="text" name="name"/>
+      <button>
+      Done
+      </button>
+      </form>
+      <%} else{%>
+        <form method="POST" action="/">
+          <label for="name">
+          Name:
+          </label>
+          <input type="text" name="name" value= `${name}`/>
+          <label for="author">
+          Author:
+          </label>
+          <input type="text" name="author" value= `${author}`/>
+          <label for="categories">
+          Categories:
+          </label>
+          <input type="checkbox" name="categories"/>
+          <label for="price">
+          Price:
+          </label>
+          <input type="number" name="price" value= `${price}`/>
+          <label for="published">
+          Published:
+          </label>
+          <input type="date" name="published" value= `${published}`/>
+          <button>
+          Done
+          </button>
+          </form>
+          <%}%>
+     </body>
+</html>
+

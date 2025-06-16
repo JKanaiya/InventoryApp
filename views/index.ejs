@@ -1,7 +1,18 @@
 <html>
   <head>
+    <title>
+      Inventory Application
+    </title>
   </head>
   <body>
+   <ul>
+      <% categories.forEach((category) => { %>
+      <%- include('category', {category.name}); %>
+      <% }); %>
+      <% books.forEach((book) => { %>
+      <%- include('book', {book.name, book.categories, book.author, book.price, book.published}); %>
+      <% }); %>
+  </ul>
   </body>
 </html>
 
