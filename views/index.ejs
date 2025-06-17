@@ -7,10 +7,10 @@
   <body>
    <ul>
       <% categories.forEach((category) => { %>
-      <%- include('category', {category.name}); %>
+      <%- include('category', {name: category.name}); %>
       <% }); %>
       <% books.forEach((book) => { %>
-      <%- include('book', {book.name, book.categories, book.author, book.price, book.published}); %>
+      <%- include('book', {name: book.name, categories: book.categories, author: book.author, price: book.price, published: book.published}); %>
       <% }); %>
   </ul>
   </body>

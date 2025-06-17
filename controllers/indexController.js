@@ -1,4 +1,5 @@
-const db = require("../db/queries");
+import { log } from "node:console";
+import * as db from "../db/queries.js";
 
 const getAllData = async function (req, res) {
   const books = await db.getAllBooks();
@@ -65,18 +66,20 @@ const editCategory = async function (req, res) {
 };
 
 const getEditBook = async function (req, res) {
-  const book = await db.searchBooks(req.params.name);
+  const book = await db.searchBooks(req.params.book);
   res.render("edit", {
-    title: `Edit ${book.name}`,
-    book: book,
+    title: `Edit ${book[0].name}`,
+    book: book[0],
+    mode: "book",
   });
 };
 
 const getEditCategory = async function (req, res) {
-  const category = await db.searchCategory(req.params.name);
+  const category = await db.searchCategory(req.params.category);
   res.render("edit", {
-    title: `Edit ${category.name}`,
+    title: `Edit ${category[0].name}`,
     category: category,
+    mode: "category",
   });
 };
 
@@ -91,7 +94,7 @@ const editBook = async function (req, res) {
   });
 };
 
-module.exports = {
+export {
   getAllData,
   getFilteredData,
   addNewBook,
@@ -102,4 +105,6 @@ module.exports = {
   editBook,
   getNewBook,
   getNewCategory,
+  getEditCategory,
+  getEditBook,
 };
