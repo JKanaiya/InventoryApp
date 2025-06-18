@@ -1,4 +1,4 @@
-import express from "express";
+import { Router } from "express";
 import {
   getAllData,
   addCategory,
@@ -8,8 +8,8 @@ import {
   getFilteredData,
   getNewCategory,
   getNewBook,
-  getEditCategory,
   getEditBook,
+  getEditCategory,
 } from "../controllers/indexController.js";
 
 const indexRouter = express.Router();
