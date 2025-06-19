@@ -1,6 +1,6 @@
 {
   "name": "expressnodetemplate",
-  "type" : "module",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -24,6 +24,7 @@
     "express": "^5.1.0",
     "express-async-handler": "^1.2.0",
     "express-validator": "^7.2.1",
-    "pg": "^8.16.0"
+    "pg": "^8.16.0",
+    "postgres-date": "^2.1.0"
   }
 }

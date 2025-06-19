@@ -4,21 +4,23 @@
   </head>
   <body>
   <% if( mode === "category"){%>
-    <form method="POST" action="/">
+    <form method="POST" action="/edit/category/<%=`${category.name}`%>">
       <label for="name">
       Category
       </label>
+      <input type="text" name="previous" value="<%=`${category.name}`%>" hidden/>
       <input type="text" name="name"/>
       <button>
       Done
       </button>
       </form>
       <%} else{%>
-        <form method="POST" action="/">
-          <label for="name">
+        <form method="POST" action="/edit/book/<%=`${book.name}`%>">
+          <input type="text" name="previous" value= "<%=`${book.name}`%>" hidden/>
+          <label for="title">
           Name:
           </label>
-          <input type="text" name="name" value= "<%=`${book.name}`%>"/>
+          <input type="text" name="title" value= "<%=`${book.name}`%>"/>
           <label for="author">
           Author:
           </label>
@@ -26,7 +28,14 @@
           <label for="categories">
           Categories:
           </label>
-          <input type="checkbox" name="categories"/>
+            <% categories.forEach((category) => { %>
+                <% if(book.categories != null && book.categories.includes(category.title)) {%>
+                <label for="<%=category.name%>"> <%=category.name%> </label>
+                <input type="checkbox" name="<%=category%>" checked/>
+                <% } else{ %>
+                <label for="<%=category.name%>"> <%=category.name%> </label>
+                <input type="checkbox" name="<%=category.name%>" />
+                <%}}) %>
           <label for="price">
           Price:
           </label>
@@ -34,8 +43,8 @@
           <label for="published">
           Published:
           </label>
-          <input type="date" name="published" value= "<%=`${book.published}`%>"/>
-          <button>
+          <input type="date" name="published" value="<%= published%>"/>
+          <button type="submit">
           Done
           </button>
           </form>

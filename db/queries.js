@@ -1,3 +1,4 @@
+import { log } from "node:console";
 import * as db from "../db/index.js";
 
 const getAllBooks = async function () {
@@ -37,6 +38,7 @@ const deleteCategory = async function (name) {
 
 const editCategory = async function (category) {
   const filter = `%${category.name}%`;
+  console.log(category);
   await db.query("UPDATE categories SET name = $1 WHERE name LIKE $2", [
     category.new,
     filter,
@@ -44,17 +46,16 @@ const editCategory = async function (category) {
 };
 
 const editBook = async function (book) {
+  const bArr = Object.entries(book.bla);
+  const categories = [];
+  bArr.forEach((cat) => {
+    if (cat[1] == "on") categories.push(cat[0]);
+  });
+  console.log(categories);
   const filter = `%${book.name}%`;
   await db.query(
     "UPDATE books SET name = $1, categories = $2, price = $3, author = $4, published = $5 WHERE name LIKE $6",
-    [
-      book.newName,
-      book.categories,
-      book.price,
-      book.author,
-      book.published,
-      filter,
-    ],
+    [book.newName, categories, book.price, book.author, book.published, filter],
   );
 };
 

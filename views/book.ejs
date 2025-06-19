@@ -3,7 +3,7 @@
 <h4><%= author %></h4>
 <p><%= categories %></p>
 <p><%= price %></p>
-<p><%= published %></p>
+<p><%= published.toDateString() %></p>
 <a href="<%=`/edit/book/${name}`%>">
   Edit
 </a>

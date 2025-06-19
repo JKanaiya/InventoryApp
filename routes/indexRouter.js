@@ -1,4 +1,4 @@
-import { Router } from "express";
+import express from "express";
 import {
   getAllData,
   addCategory,
@@ -22,7 +22,7 @@ indexRouter.get("/edit/book/:book", getEditBook);
 indexRouter.get("/edit/category/:category", getEditCategory);
 indexRouter.post("/new/category", addCategory);
 indexRouter.post("/new/book", addNewBook);
-indexRouter.post("/edit/:book", editBook);
-indexRouter.post("/edit/:category", editCategory);
+indexRouter.post("/edit/book/:book", editBook);
+indexRouter.post("/edit/category/:category", editCategory);
 
 export default indexRouter;

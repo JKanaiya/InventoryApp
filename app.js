@@ -5,8 +5,8 @@ import "dotenv/config.js";
 
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(import.meta.dirname, "views"));
-console.log(process.env.CONNECTION_STRING);
 app.set("view engine", "ejs");
 app.use("/", indexRouter);
 
