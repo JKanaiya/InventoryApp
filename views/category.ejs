@@ -1,13 +1,15 @@
-<li>
+<div class="category">
 <h2>
 <a href="<%=`/${name}`%>">
 <%= name %>
 </a>
 </h2>
-<a href="<%=`/edit/category/${name}`%>">
+<div class="buttons">
+<a class="edit button" href="<%=`/edit/category/${name}`%>">
   Edit
 </a>
-<a href="<%=`/delete/category/${name}`%>">
+<a class="delete button" href="<%=`/delete/category/${name}`%>">
   Delete
 </a>
-</li>
+</div>
+</div>

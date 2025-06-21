@@ -1,13 +1,16 @@
 <html>
   <head>
-    <%= title %>
+    <link rel="stylesheet" type="text/css" href="edit.css">
   </head>
   <body>
+  <h2 id="title">
+    <%= title %>
+  </h2>
   <% if( mode === "category"){%>
       <%- include("partials/errors.ejs") %>
     <form method="POST" action="/edit/category/<%=`${category.name}`%>">
       <label for="name">
-      Category
+      Name:
       </label>
       <input type="text" name="previous" value="<%=`${category.name}`%>" hidden/>
       <input type="text" name="name"/>
@@ -33,7 +36,7 @@
             <% categories.forEach((category) => { %>
                 <% if(book.categories != null  && book.categories.includes(category.name)) {%>
                 <label for="<%=category.name%>"> <%=category.name%> </label>
-                <input type="checkbox" name="<%=category%>" checked/>
+                <input type="checkbox" name="<%=category.name%>" checked/>
                 <% } else{ %>
                 <label for="<%=category.name%>"> <%=category.name%> </label>
                 <input type="checkbox" name="<%=category.name%>" />

@@ -1,13 +1,15 @@
-<li>
+<div class="book">
 <h3><%= name %></h3>
-<h4><%= author %></h4>
-<p><%= categories %></p>
-<p><%= price %></p>
-<p><%= published.toDateString() %></p>
-<a href="<%=`/edit/book/${name}`%>">
-  Edit
+<h4>Author: <%= author %></h4>
+<p>Genres: <%= categories %></p>
+<p>Price: $<%= price %></p>
+<p>Date Published: <%= published.toDateString() %></p>
+<div class="buttons">
+<a class="edit button" href="<%=`/edit/book/${name}`%>">
+Edit
 </a>
-<a href="<%=`/delete/book/${name}`%>">
-  Delete
+<a class="delete button" href="<%=`/delete/book/${name}`%>">
+Delete
 </a>
-</li>
+</div>
+</div>

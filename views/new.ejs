@@ -1,10 +1,14 @@
 <html>
   <head>
+    <link rel="stylesheet" href="new.css">
   <title>
     <%= title %>
   </title>
   </head>
   <body>
+  <h2>
+    <%= title %>
+  </h2>
   <% if(title == "New Book"){ %>
     <%- include("partials/errors.ejs") %>
       <form method="POST" action="/new/book">

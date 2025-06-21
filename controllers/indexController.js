@@ -177,6 +177,7 @@ const editBook = [
       newName: req.body.title,
       price: req.body.price,
       author: req.body.author,
+      categories: req.body.categories,
       published: req.body.published,
       name: req.body.previous,
       bla: req.body,
