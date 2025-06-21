@@ -4,6 +4,7 @@
   </head>
   <body>
   <% if( mode === "category"){%>
+      <%- include("partials/errors.ejs") %>
     <form method="POST" action="/edit/category/<%=`${category.name}`%>">
       <label for="name">
       Category
@@ -15,6 +16,7 @@
       </button>
       </form>
       <%} else{%>
+      <%- include("partials/errors.ejs") %>
         <form method="POST" action="/edit/book/<%=`${book.name}`%>">
           <input type="text" name="previous" value= "<%=`${book.name}`%>" hidden/>
           <label for="title">
@@ -29,7 +31,7 @@
           Categories:
           </label>
             <% categories.forEach((category) => { %>
-                <% if(book.categories != null && book.categories.includes(category.title)) {%>
+                <% if(book.categories != null  && book.categories.includes(category.name)) {%>
                 <label for="<%=category.name%>"> <%=category.name%> </label>
                 <input type="checkbox" name="<%=category%>" checked/>
                 <% } else{ %>

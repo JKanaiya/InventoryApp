@@ -5,13 +5,25 @@
     </title>
   </head>
   <body>
+    <h1>
+      Inventory Application
+    </h1>
    <ul>
+      <a href="<%=`/`%>">
+      All Books
+      </a>
       <% categories.forEach((category) => { %>
       <%- include('category', {name: category.name}); %>
       <% }); %>
+      <a href="<%=`/new/category`%>">
+      Add Category
+      </a>
       <% books.forEach((book) => { %>
       <%- include('book', {name: book.name, categories: book.categories, author: book.author, price: book.price, published: book.published}); %>
       <% }); %>
+      <a href="<%=`/new/book`%>">
+      Add Book
+      </a>
   </ul>
   </body>
 </html>

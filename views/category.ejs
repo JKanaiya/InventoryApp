@@ -1,6 +1,13 @@
 <li>
-<h2><%= name %></h2>
+<h2>
+<a href="<%=`/${name}`%>">
+<%= name %>
+</a>
+</h2>
 <a href="<%=`/edit/category/${name}`%>">
   Edit
+</a>
+<a href="<%=`/delete/category/${name}`%>">
+  Delete
 </a>
 </li>

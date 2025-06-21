@@ -5,12 +5,16 @@
   </title>
   </head>
   <body>
-    <% if(title == "New Book"){ %>
+  <% if(title == "New Book"){ %>
+    <%- include("partials/errors.ejs") %>
       <form method="POST" action="/new/book">
-        <label for="name"> Name: </label>
-        <input type="text" name="name"/>
+        <label for="title"> title: </label>
+        <input type="text" name="title"/>
         <label for="categories"> Categories </label>
-        <input type="checkbox" name="categories"/>
+            <% categories.forEach((category) => { %>
+                <label for="<%=category.name%>"> <%=category.name%> </label>
+                <input type="checkbox" name="<%=category%>"/>
+                <%}) %>
         <label for="author"> Author: </label>
         <input type="text" name="author"/>
         <label for="price"> Price: </label>
@@ -22,6 +26,7 @@
     </button>
     </form>
     <%}else{%>
+      <%- include("partials/errors.ejs") %>
     <form method="POST" action="/new/category">
       <label for="name"> Name: </label>
       <input type="text" name="name"/>
